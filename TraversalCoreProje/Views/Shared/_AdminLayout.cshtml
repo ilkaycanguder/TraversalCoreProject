@@ -49,6 +49,9 @@
     </div>
 
     @await Html.PartialAsync("/Views/Admin/PartialScript.cshtml")
+
+    @RenderSection("Scripts", required: false)
+
 </body>
 </html>
 

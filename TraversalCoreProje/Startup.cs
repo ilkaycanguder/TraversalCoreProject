@@ -35,8 +35,16 @@ namespace TraversalCoreProje
             services.AddDbContext<Context>();
             services.AddIdentity<AppUser, AppRole>().AddEntityFrameworkStores<Context>
                 ().AddErrorDescriber<CustomIdentityValidator>().AddEntityFrameworkStores<Context>();
+
             services.AddScoped<ICommentService, CommentManager>();
-            services.AddScoped<ICommentDal, EfCommentDal>();    
+            services.AddScoped<ICommentDal, EfCommentDal>();
+
+            services.AddScoped<IDestinationService, DestinationManager>();
+            services.AddScoped<IDestinationDal, EfDestinationDal>();
+
+            services.AddScoped<IAppUserService, AppUserManager>();
+            services.AddScoped<IAppUserDal, EfAppUserDal>();
+
             services.AddControllersWithViews();
 
             services.AddMvc(config =>
