@@ -15,10 +15,20 @@ namespace DataAccessLayer.EntityFramework
     {
         public List<Comment> GetListCommentWithDestination()
         {
-            using(var c = new Context())
+            using (var c = new Context())
             {
                 return c.Comments.Include(c => c.Destination).ToList();
             }
         }
+
+        public List<Comment> GetListCommentWithDestinationAndUser(int id)
+        {
+            using (var c = new Context())
+            {
+                return c.Comments.Where(x => x.DestinationID == id).Include(c => c.AppUser).ToList();
+            }
+        }
+
+
     }
 }
