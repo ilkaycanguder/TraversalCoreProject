@@ -36,11 +36,11 @@
                     </div>
                     <div class="blog-post-info">
                         <div class="author align-items-center mb-1">
-                            <a href="#">@destination.City</a> in <a href="#url">Traversal</a>
+                            <a href="#">@destination.Guide.Name</a> Tur Rotaları: <a href="#url">@destination.Guide.Description</a>
                         </div>
                         <ul class="blog-meta">
                             <li class="meta-item blog-lesson">
-                                <span class="meta-value"> @destination.Date.ToString("MMMM dd, yyyy") </span>
+                                <span class="meta-value"> @(((DateTime)destination.Date).ToString("dd-MMM-yyyy")) </span>
                             </li>
                             <li class="meta-item blog-students">
                                 <span class="meta-value"> 6min read</span>
@@ -106,8 +106,60 @@
                                 <a href="#blog-share"><span class="fa fa-pinterest-p" aria-hidden="true"></span></a>
                             </div>
                         </div>
-
-                        @await Component.InvokeAsync("_GuideDetails", new { guideId = destination.GuideID })
+                   
+                            <div class="author-card mt-5">
+                                <div class="row align-items-center">
+                                    <div class="col-sm-3 col-6">
+                                        <div>
+                                            <img src="@destination.Guide.Image" alt="" class="rounded-circle img-fluid">
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-9 mt-sm-0 mt-3">
+                                        <h3 class="mb-3 title">@destination.Guide.Name</h3>
+                                        <p>
+                                            @destination.Guide.Description2
+                                        </p>
+                                        <ul class="author-icons mt-4">
+                                            <li>
+                                            <a class="facebook" target="_blank" href="https://www.facebook.com/">
+                                                    <span class="fa fa-facebook"
+                                                          aria-hidden="true"></span>
+                                                </a>
+                                            </li>
+                                            <li>
+                                            <a class="twitter" target="_blank" href="https://x.com/home">
+                                                    <span class="fa fa-twitter"
+                                                          aria-hidden="true"></span>
+                                                </a>
+                                            </li>
+                                            <li>
+                                            <a class="google" target="_blank" href="https://www.google.com.tr/">
+                                                    <span class="fa fa-google-plus"
+                                                          aria-hidden="true"></span>
+                                                </a>
+                                            </li>
+                                            <li>
+                                            <a class="linkedin" target="_blank" href="https://www.linkedin.com/in/ilkaycanguder/">
+                                                    <span class="fa fa-linkedin"
+                                                          aria-hidden="true"></span>
+                                                </a>
+                                            </li>
+                                            <li>
+                                            <a class="github" target="_blank" href="https://github.com/ilkaycanguder">
+                                                    <span class="fa fa-github"
+                                                          aria-hidden="true"></span>
+                                                </a>
+                                            </li>
+                                            <li>
+                                            <a class="instagram" target="_blank" href="https://www.instagram.com/">
+                                                    <span class="fa fa-instagram"
+                                                          aria-hidden="true"></span>
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
                         @await Component.InvokeAsync("_CommentList", new { id = destination.DestinationID })
                         @await Html.PartialAsync("~/Views/Comment/AddComment.cshtml", new { id = destination.DestinationID })
                     </div>
@@ -115,7 +167,6 @@
             </div>
         </section>
     }
-
 </body>
 
 </html>
