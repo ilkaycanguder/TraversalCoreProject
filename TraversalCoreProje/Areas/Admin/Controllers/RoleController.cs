@@ -90,6 +90,7 @@ namespace TraversalCoreProje.Areas.Admin.Controllers
         public async Task<IActionResult> AssignRole(int id)
         {
             var user = _userManager.Users.FirstOrDefault(x => x.Id == id);
+            TempData["Userid"] = user.Id;
             var roles = _roleManager.Roles.ToList();
             var userRoles = await _userManager.GetRolesAsync(user);
             List<RoleAssignViewModel> roleAssignViewModels = new List<RoleAssignViewModel>();
@@ -99,9 +100,28 @@ namespace TraversalCoreProje.Areas.Admin.Controllers
                 model.RoleId = item.Id;
                 model.RoleName = item.Name;
                 model.RoleExist = userRoles.Contains(item.Name);
-                roleAssignViewModels.Add(model);    
+                roleAssignViewModels.Add(model);
             }
             return View(roleAssignViewModels);
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> AssignRole(List<RoleAssignViewModel> model)
+        {
+            var userid = (int)TempData["Userid"];
+            var user = _userManager.Users.FirstOrDefault(x => x.Id == userid);
+            foreach (var item in model)
+            {
+                if (item.RoleExist)
+                {
+                    await _userManager.AddToRoleAsync(user, item.RoleName);
+                }
+                else
+                {
+                    await _userManager.RemoveFromRoleAsync(user, item.RoleName);
+                }
+            }
+            return RedirectToAction("UserList");
         }
     }
 }
