@@ -1,8 +1,8 @@
 ﻿using Microsoft.AspNetCore.SignalR;
-using SignalRApi.Model;
+using SignalRApiForSql.Models;
 using System.Threading.Tasks;
 
-namespace SignalRApi.Hubs
+namespace SignalRApiForSql.Hubs
 {
     public class VisitorHub : Hub
     {
