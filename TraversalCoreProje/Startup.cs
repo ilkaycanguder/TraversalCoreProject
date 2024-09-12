@@ -117,11 +117,11 @@ namespace TraversalCoreProje
             {
                 endpoints.MapControllerRoute(
                     name: "areas",
-                    pattern: "{area:exists}/{controller=Home}/{action=Index}/{id?}");
+                    pattern: "{area:exists}/{controller=Default}/{action=Index}/{id?}");
 
                 endpoints.MapControllerRoute(
                     name: "default",
-                    pattern: "{controller=Home}/{action=Index}/{id?}");
+                    pattern: "{controller=Default}/{action=Index}/{id?}");
             });
         }
     }
