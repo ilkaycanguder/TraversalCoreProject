@@ -5,15 +5,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <EmbeddedResource Remove="Resources\Views\Information\Index.de.resx" />
-    <EmbeddedResource Remove="Resources\Views\Information\Index.en.resx" />
-    <EmbeddedResource Remove="Resources\Views\Information\Index.es.resx" />
-    <EmbeddedResource Remove="Resources\Views\Information\Index.fr.resx" />
-    <EmbeddedResource Remove="Resources\Views\Information\Index.gr.resx" />
-    <EmbeddedResource Remove="Resources\Views\Information\Index.tr.resx" />
-  </ItemGroup>
-
-  <ItemGroup>
     <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="12.0.0" />
     <PackageReference Include="ClosedXML" Version="0.96.0" />
     <PackageReference Include="EPPlus" Version="6.0.7" />
@@ -52,12 +43,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <None Include="Resources\Views\Information\Index.de.resx" />
-    <None Include="Resources\Views\Information\Index.en.resx" />
-    <None Include="Resources\Views\Information\Index.es.resx" />
-    <None Include="Resources\Views\Information\Index.fr.resx" />
-    <None Include="Resources\Views\Information\Index.gr.resx" />
-    <None Include="Resources\Views\Information\Index.tr.resx" />
     <None Include="wwwroot\sneat-1.0.0\.github\workflows\handle-new-issue-comment.yml" />
     <None Include="wwwroot\sneat-1.0.0\.github\workflows\handle-new-issue.yml" />
     <None Include="wwwroot\sneat-1.0.0\.github\workflows\issue-staler.yml" />
