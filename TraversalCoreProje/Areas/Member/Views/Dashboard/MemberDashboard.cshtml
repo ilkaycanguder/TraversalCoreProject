@@ -49,11 +49,11 @@
     </nav>
 
     <!-- ////////////////////////////////////////////////////////////////////////////-->
-    <div class="main-menu menu-fixed menu-light menu-accordion    menu-shadow " data-scroll-to-active="true" data-img="~/member/theme-assets/images/backgrounds/02.jpg">
+    <div class="main-menu menu-fixed menu-light menu-accordion    menu-shadow " data-scroll-to-active="true" data-img="/member/theme-assets/images/backgrounds/02.jpg">
         <div class="navbar-header">
             <ul class="nav navbar-nav flex-row">
                 <li class="nav-item mr-auto">
-                    <a class="navbar-brand" href="index.html">
+                    <a class="navbar-brand" href="/Member/Dashboard/MemberDashboard/">
                         <img class="brand-logo" alt="Chameleon admin logo" src="~/member/theme-assets/images/logo/logo.png" />
                         <h3 class="brand-text">Traversal</h3>
                     </a>
@@ -93,8 +93,13 @@
                 <li class=" nav-item">
                     <a href="/Default/Index/"><i class="ft-power"></i><span class="menu-title" data-i18n="">@localizer["Siteye Git"]</span></a>
                 </li>
-                <li class=" nav-item">
-                    <a href="#"><i class="ft-log-out"></i><span class="menu-title" data-i18n="">@localizer["Çıkış Yap"]</span></a>
+                <li class="nav-item">
+                    <form asp-controller="Login" asp-action="Logout" method="post" style="display: inline;">
+                        @Html.AntiForgeryToken()
+                        <button type="submit" style="background: none; border: none; padding: 0; margin: 0; cursor: pointer;">
+                            <i class="ft-log-out"></i><span class="menu-title" data-i18n="">@localizer["Çıkış Yap"]</span>
+                        </button>
+                    </form>
                 </li>
             </ul>
         </div>

@@ -1,4 +1,6 @@
 ﻿using EntityLayer.Concrete;
+using Microsoft.AspNetCore.Authentication.Cookies;
+using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
@@ -9,6 +11,7 @@ using TraversalCoreProje.Models;
 namespace TraversalCoreProje.Controllers
 {
     [AllowAnonymous]
+    [Route("Login/[action]")]
     public class LoginController : Controller
     {
         private readonly UserManager<AppUser> _userManager;
@@ -78,5 +81,14 @@ namespace TraversalCoreProje.Controllers
             }
             return View();
         }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> Logout()
+        {
+            await _signInManager.SignOutAsync();
+            return RedirectToAction("SignIn", "Login", new { area = "" });
+        }
+
     }
 }
