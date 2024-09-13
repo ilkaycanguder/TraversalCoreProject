@@ -1,4 +1,4 @@
-# 🚀 Traversal Rezervasyon: Asp.Net 5.0 
+# 🚀 Traversal Rezervasyon: Asp.Net Core 5.0 
 
 ---
 
